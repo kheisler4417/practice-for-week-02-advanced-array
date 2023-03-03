@@ -14,12 +14,27 @@ console.log(hipsterfy('panthers are great animals')); // 'panthrs ar gret animls
 
 */
 
-let removeLastVowel = function(word) {
-    // Your code here
-};
 
-let hipsterfy = function(sentence) {
-    // Your code here
+// let removeLastVowel = function(word) {
+//     // Your code here
+// };
+
+let hipsterfy = function (sentence) {
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const words = sentence.split(' ');
+
+    const hipsterWords = words.map(word => {
+        let lastVowelIndex = -1;
+        for (let i = word.length - 1; i >= 0; i--) {
+            if (vowels.includes(word[i])) {
+                lastVowelIndex = i;
+                break;
+            }
+        }
+        return word.slice(0, lastVowelIndex) + word.slice(lastVowelIndex + 1);
+    });
+
+    return hipsterWords.join(' ');
 };
 
 // alternative solution using Array.map
@@ -33,4 +48,4 @@ try {
     module.exports = hipsterfy;
 } catch (e) {
     module.exports = null;
-}
+}
