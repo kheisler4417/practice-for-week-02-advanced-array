@@ -16,8 +16,10 @@ console.log(hasThreeVowels('go home'));         //  false
 
 */
 
-let hasThreeVowels = function(string) {
-    // Your code here
+let hasThreeVowels = function (string) {
+    const vowels = 'aeiou';
+    const uniqueVowels = [...new Set(string)].filter((char) => vowels.includes(char));
+    return uniqueVowels.length >= 3;
 };
 
 // Your code here
@@ -28,4 +30,4 @@ try {
     module.exports = hasThreeVowels;
 } catch (e) {
     module.exports = null;
-}
+}
